@@ -1,0 +1,12 @@
+function helperUpdateCameraTrajectories(viewId, trajectoryEstimated, ...
+    trajectoryActual, posesEstimated, posesActual)
+
+% Plot the estimated trajectory.
+locations = cat(1, posesEstimated.Location{:});
+set(trajectoryEstimated, 'XData', locations(:,1), 'YData', ...
+    locations(:,2), 'ZData', locations(:,3));
+
+% Plot the ground truth trajectory
+locationsActual = cat(1, posesActual.Location{1:viewId});
+set(trajectoryActual, 'XData', locationsActual(:,1), 'YData', ...
+    locationsActual(:,2), 'ZData', locationsActual(:,3));
